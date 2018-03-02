@@ -204,15 +204,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrap.cs" />
-    <Compile Include="IUnpublishRestriction.cs" />
-    <Compile Include="IPublishRestriction.cs" />
-    <Compile Include="LeastOnceDocumentRootRestriction.cs" />
+    <Compile Include="Interface\IPublishingRestrictions.cs" />
+    <Compile Include="Interface\ISavingRestriction.cs" />
+    <Compile Include="MVCStartup.cs" />
+    <Compile Include="Interface\IUnpublishRestriction.cs" />
+    <Compile Include="Interface\IPublishRestriction.cs" />
+    <Compile Include="Restrictions\DoNotPublishWithoutChildrenRestriction.cs" />
+    <Compile Include="Restrictions\LeastOnceDocumentRootRestriction.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestrictionsConfig.cs" />
-    <Compile Include="RootSingletonDocumentRestriction.cs" />
-    <Compile Include="OnlyChildDocumentRestriction.cs" />
+    <Compile Include="Restrictions\RestrictionBase.cs" />
+    <Compile Include="Restrictions\RootSingletonDocumentRestriction.cs" />
+    <Compile Include="Restrictions\OnlyChildDocumentRestriction.cs" />
+    <Compile Include="Restrictions\UnpublishParentWithNoChildrenRestriction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
