@@ -26,7 +26,7 @@ namespace GiuUnit.UmbracoRestrictions.Core
                 //Do not used cached content here. If the user deletes and tries again, it won't work.
                 //We must look at the database.
                 var cs = ApplicationContext.Current.Services.ContentService;
-                var siblingsAliases = cs.GetById(entity.ParentId).Children().Select(x => x.ContentType.Alias);
+                var siblingsAliases = cs.GetById(entity.ParentId).Children().Where(x => x.Id != entity.Id).Select(x => x.ContentType.Alias);
 
                 //any siblings with the same doc type ? 
                 var dbDocumentsCondition = _restrictedEntities.Any(x => siblingsAliases.Contains(x.ContentType.Alias));
